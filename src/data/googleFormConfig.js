@@ -32,7 +32,15 @@
 
 // "Book a Meeting — Trinova at FMCG Biz Connect Expo 2026"
 // https://docs.google.com/forms/d/e/1FAIpQLSdD2cONUWU1X1zYJECN5Nt9QQK8XvHqzq9L1isDDMkirxs6CQ/viewform
+//
+// The booking section now embeds this form directly (see BookingForm.jsx)
+// rather than posting to it via JS — that's the reliable path: it's
+// Google's own real submission flow, so there's no silent-failure risk and
+// no entry-id mapping to keep in sync. `entries`/`formActionUrl` below are
+// kept only as a reference in case a custom-styled JS-submit form is ever
+// wanted again for this or another form.
 export const bookingFormConfig = {
+  viewformEmbedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdD2cONUWU1X1zYJECN5Nt9QQK8XvHqzq9L1isDDMkirxs6CQ/viewform?embedded=true',
   formActionUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdD2cONUWU1X1zYJECN5Nt9QQK8XvHqzq9L1isDDMkirxs6CQ/formResponse',
   entries: {
     day: 'entry.487410539', // Select expo day
