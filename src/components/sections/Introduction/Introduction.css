@@ -1,0 +1,24 @@
+.introduction__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.introduction__grid h2 {
+  margin-top: 1rem;
+  max-width: 14ch;
+}
+
+.introduction__body p + p {
+  margin-top: 1.25rem;
+}
+
+.introduction__body .btn {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .introduction__grid {
+    grid-template-columns: 1fr;
+  }
+}

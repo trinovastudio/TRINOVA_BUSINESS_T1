@@ -1,0 +1,21 @@
+.industries-page {
+  width: 100%;
+}
+
+.industries-hero {
+  padding-top: 7rem;
+}
+
+.industries-cta__inner {
+  text-align: center;
+  max-width: 38rem;
+}
+
+.industries-cta__inner p {
+  margin: 1rem auto 0;
+  max-width: 44ch;
+}
+
+.industries-cta__inner .btn {
+  margin-top: 1.75rem;
+}

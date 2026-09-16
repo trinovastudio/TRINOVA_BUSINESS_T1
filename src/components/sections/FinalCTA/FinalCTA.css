@@ -1,0 +1,24 @@
+.final-cta {
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.final-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 56ch;
+}
+
+.final-cta__inner p {
+  margin-top: 1.25rem;
+}
+
+.final-cta__prompt {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.final-cta__inner .btn {
+  margin-top: 2.5rem;
+}

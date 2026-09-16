@@ -1,0 +1,33 @@
+.solutions {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Static dotted-grid backdrop (no canvas / WebGL) — purely decorative. */
+.solutions__grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--color-border-soft) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 55%, transparent 100%);
+}
+
+.solutions__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.solutions__intro {
+  max-width: 60ch;
+}
+
+.solutions__intro h2 {
+  margin-top: 1rem;
+}
+
+.solutions__intro p {
+  margin-top: 1.25rem;
+}

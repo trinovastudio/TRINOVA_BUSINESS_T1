@@ -1,0 +1,212 @@
+.insights-page {
+  width: 100%;
+}
+
+.insights-hero {
+  padding-top: 7rem;
+}
+
+/* ---------- CATEGORIES ---------- */
+
+.insights-categories {
+  background: var(--color-surface);
+}
+
+.insights-categories__grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.insights-categories__card {
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-soft);
+  background: var(--color-surface-container);
+}
+
+.insights-categories__card h3 {
+  font-size: 1.05rem;
+}
+
+.insights-categories__card p {
+  margin-top: 0.6rem;
+  font-size: var(--fs-small);
+}
+
+/* ---------- ARTICLES TOOLBAR ---------- */
+
+.insights-articles__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.insights-articles__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.insights-articles__pill {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-container);
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.insights-articles__pill.is-active {
+  background: var(--color-primary-container);
+  color: var(--color-text);
+}
+
+.insights-articles__pill:hover:not(.is-active) {
+  color: var(--color-text);
+}
+
+.insights-articles__grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+/* ---------- ARTICLE CARD ---------- */
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-border-soft);
+  transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.article-card:hover {
+  border-color: var(--article-accent, var(--color-primary));
+  transform: translateY(-2px);
+}
+
+.article-card__media {
+  aspect-ratio: 4 / 3;
+  background: var(--color-bg-lowest);
+}
+
+.article-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-card__media-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--article-accent) 22%, transparent), transparent 70%),
+    var(--color-surface-high);
+}
+
+.article-card__media-fallback span {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--article-accent, var(--color-primary));
+  opacity: 0.6;
+}
+
+.article-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.article-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.article-card__readtime {
+  font-size: var(--fs-small);
+  color: var(--color-text-faint);
+}
+
+.article-card__body h3 {
+  margin-top: 0.85rem;
+  font-size: 1.15rem;
+}
+
+.article-card__body p {
+  margin-top: 0.6rem;
+  font-size: var(--fs-small);
+}
+
+.article-card__link {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--article-accent, var(--color-primary));
+}
+
+.article-card__link:hover {
+  color: var(--color-text);
+}
+
+/* ---------- RESOURCES ---------- */
+
+.insights-resources {
+  background: var(--color-surface);
+}
+
+.insights-resources__grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.insights-resources__card h3 {
+  font-size: 1.05rem;
+}
+
+.insights-resources__card p {
+  margin-top: 0.5rem;
+  font-size: var(--fs-small);
+}
+
+/* ---------- CTA ---------- */
+
+.insights-cta__inner {
+  text-align: center;
+  max-width: 38rem;
+}
+
+.insights-cta__inner p {
+  margin: 1rem auto 0;
+  max-width: 44ch;
+}
+
+.insights-cta__inner .btn {
+  margin-top: 1.75rem;
+}

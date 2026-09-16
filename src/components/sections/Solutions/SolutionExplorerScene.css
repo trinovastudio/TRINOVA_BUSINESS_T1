@@ -1,0 +1,45 @@
+/* No box, no border — the model sits directly on the page background,
+   matching the reference's `fixed inset-0 bg-transparent` canvas. */
+.solution-explorer-scene {
+  position: relative;
+  width: 100%;
+  height: clamp(420px, 52vw, 640px);
+  background: transparent;
+}
+
+.solution-explorer-scene canvas {
+  touch-action: none;
+}
+
+.solution-explorer-scene__badge {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(14, 14, 16, 0.7);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.solution-explorer-scene__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 8px var(--color-glow);
+}
+
+@media (max-width: 640px) {
+  .solution-explorer-scene {
+    height: 380px;
+  }
+}

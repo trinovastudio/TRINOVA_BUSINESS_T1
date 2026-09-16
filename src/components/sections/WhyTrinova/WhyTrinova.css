@@ -1,0 +1,33 @@
+.why-trinova__intro {
+  max-width: 60ch;
+}
+
+.why-trinova__intro h2 {
+  margin-top: 1rem;
+}
+
+.why-trinova__intro p {
+  margin-top: 1.25rem;
+}
+
+.why-trinova__grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.why-trinova__grid h3 {
+  font-size: 1.1rem;
+}
+
+.why-trinova__grid p {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .why-trinova__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

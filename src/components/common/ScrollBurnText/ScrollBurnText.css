@@ -1,0 +1,143 @@
+.scroll-burn {
+  width: 100%;
+  background: var(--color-bg);
+}
+
+.scroll-burn .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced-motion fallback: plain stacked copy, no pin, no burn        */
+/* ------------------------------------------------------------------ */
+
+.scroll-burn--static {
+  padding: var(--section-space) 0;
+}
+
+.scroll-burn__static-list {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  gap: 2.5rem;
+}
+
+.scroll-burn__block--static {
+  width: 100%;
+  text-align: left;
+  opacity: 1;
+  visibility: visible;
+  font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+  font-weight: 500;
+  text-shadow: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Pinned scroll runway                                                */
+/* ------------------------------------------------------------------ */
+
+.scroll-burn__runway {
+  width: 100%;
+}
+
+.scroll-burn__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.scroll-burn__counter {
+  position: absolute;
+  bottom: 1.25rem;
+  left: var(--gutter);
+  z-index: 10;
+  pointer-events: none;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-faint);
+}
+
+.scroll-burn__hint {
+  position: absolute;
+  inset: auto 0 4rem 0;
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.scroll-burn__hint-label {
+  position: relative;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-text-faint);
+}
+
+.scroll-burn__hint-label::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  margin-top: 0.5rem;
+  height: 2rem;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--color-text-faint), transparent);
+}
+
+.scroll-burn__block-wrap {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  will-change: transform;
+}
+
+.scroll-burn__block {
+  position: relative;
+  width: min(84vw, 40rem);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4.6vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  text-shadow:
+    calc(var(--ab) * -1px) 0 rgba(208, 188, 255, 0.85),
+    calc(var(--ab) * 1px) 0 rgba(192, 193, 255, 0.85);
+}
+
+.scroll-burn__glyph {
+  opacity: calc((var(--t, 1) + 0.09 - var(--b, 0)) * 11);
+}
+
+.scroll-burn__grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  background-size: 180px;
+}
+
+@media (max-width: 640px) {
+  .scroll-burn__block {
+    font-size: clamp(1.2rem, 7vw, 1.9rem);
+  }
+}

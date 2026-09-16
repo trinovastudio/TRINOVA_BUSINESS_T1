@@ -1,0 +1,11 @@
+.solutions-hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-scene);
+  cursor: grab;
+  touch-action: none;
+}
+
+.solutions-hero-scene:active {
+  cursor: grabbing;
+}

@@ -1,0 +1,451 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  height: 84px;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header__logo img {
+  display: block;
+  height: 28px;
+  width: auto;
+}
+
+.header__actions {
+  flex-shrink: 0;
+}
+
+.header__actions .btn {
+  padding: 0.6rem 1.15rem;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 1250px) {
+  .header__actions .btn {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Desktop nav + mega menu                                          */
+/* ---------------------------------------------------------------- */
+
+.desktop-nav {
+  min-width: 0;
+}
+
+.desktop-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-wrap: nowrap;
+}
+
+.desktop-nav__item {
+  display: flex;
+  position: relative;
+}
+
+.desktop-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  padding: 0.5rem 0.1rem;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.desktop-nav__link:hover,
+.desktop-nav__link.is-active,
+.desktop-nav__link.is-open {
+  color: var(--color-text);
+}
+
+.desktop-nav__chevron {
+  color: var(--color-text-faint);
+  transition: transform var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.desktop-nav__link.is-open .desktop-nav__chevron {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+/* Compact flyout anchored directly under its trigger — never full-screen. */
+.mega-menu {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out),
+    visibility var(--dur-fast) linear;
+  background: color-mix(in srgb, var(--color-surface) 97%, transparent);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.mega-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* The two right-most triggers anchor their dropdown to the right edge
+   instead of the left, so it never clips off the viewport. */
+.desktop-nav__item:nth-last-child(-n + 2) .mega-menu {
+  left: auto;
+  right: 0;
+}
+
+.mega-menu__panel {
+  width: max-content;
+  max-width: min(600px, calc(100vw - 2 * var(--gutter)));
+  margin: 0;
+  padding: 1.5rem;
+}
+
+.mega-menu__panel--solutions,
+.mega-menu__panel--capabilities {
+  width: 460px;
+}
+
+.mega-menu__panel--industries {
+  width: 480px;
+}
+
+.mega-menu__panel--insights,
+.mega-menu__panel--how-we-work {
+  width: 460px;
+}
+
+.mega-menu__grid--4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.mega-menu__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container);
+  transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.mega-menu__card:hover {
+  border-color: rgba(208, 188, 255, 0.4);
+  background: var(--color-surface-high);
+  transform: translateY(-2px);
+}
+
+.mega-menu__card-number {
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+}
+
+.mega-menu__card-title {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.mega-menu__card-desc {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+.mega-menu__grid--links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem 1.25rem;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.mega-menu__link {
+  padding: 0.5rem 0.25rem;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.mega-menu__link:hover {
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.mega-menu__columns {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 1.5rem;
+}
+
+.mega-menu__panel--how-we-work .mega-menu__columns {
+  grid-template-columns: 1fr;
+}
+
+.mega-menu__column-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: 0.9rem;
+}
+
+.mega-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.mega-menu__list a {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.mega-menu__list a:hover {
+  color: var(--color-text);
+}
+
+.mega-menu__list--steps a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mega-menu__step-number {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--color-primary);
+}
+
+.mega-menu__list--articles li a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.mega-menu__article-title {
+  color: var(--color-text);
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+.mega-menu__article-excerpt {
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+.mega-menu__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.mega-menu__footer-note {
+  font-size: 0.82rem;
+  color: var(--color-text-faint);
+}
+
+.mega-menu__cta {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--color-primary);
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.mega-menu__cta:hover {
+  color: var(--color-tertiary);
+}
+
+@media (max-width: 1250px) {
+  .desktop-nav__list {
+    gap: 1.1rem;
+  }
+  .desktop-nav__link {
+    font-size: 0.84rem;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Mobile menu toggle + slide-in panel — narrow viewports only       */
+/* (.mobile-only / .desktop-only breakpoints live in responsive.css) */
+/* ---------------------------------------------------------------- */
+
+.header__menu-toggle {
+  position: relative;
+  z-index: calc(var(--z-overlay) + 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+
+.header__menu-toggle span {
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-text);
+  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+}
+
+.header__menu-toggle.is-open span:first-child {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+.header__menu-toggle.is-open span:last-child {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 84px 0 0 0;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 2rem var(--gutter) 3rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transform: translateX(100%);
+  transition: transform var(--dur-mid) var(--ease-in-out);
+  z-index: var(--z-overlay);
+}
+
+.mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+.mobile-menu__nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.mobile-menu__item {
+  border-bottom: 1px solid var(--color-border-soft);
+  padding-bottom: 1.1rem;
+}
+
+.mobile-menu__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mobile-menu__row a {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.mobile-menu__toggle {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-faint);
+  background: none;
+  border: none;
+}
+
+.mobile-menu__toggle svg {
+  transition: transform var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.mobile-menu__toggle.is-open svg {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+/*
+ * Specificity note: the general `.mobile-menu__nav ul` rule above
+ * (0,1,1) would otherwise beat a bare `.mobile-menu__sublist` (0,1,0)
+ * and force every sublist open regardless of state, so this is scoped
+ * through the parent `.mobile-menu__item` to win the cascade (0,2,0).
+ */
+.mobile-menu__item .mobile-menu__sublist {
+  display: none;
+}
+
+.mobile-menu__item .mobile-menu__sublist.is-open {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 0 0.25rem;
+}
+
+.mobile-menu__sublist a {
+  display: block;
+  padding: 0.4rem 0;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+.mobile-menu__sublist a:hover {
+  color: var(--color-text);
+}
+
+.mobile-menu__cta {
+  align-self: flex-start;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  flex-shrink: 0;
+}

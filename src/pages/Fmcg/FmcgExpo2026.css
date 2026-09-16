@@ -1,0 +1,1068 @@
+/*
+ * FMCG Biz Connect Expo 2026 campaign page. Built entirely on the site's
+ * existing dark design tokens (variables.css) — no new palette — with
+ * `--fmcg-accent` set per-page to the same accent already used for FMCG on
+ * the Industries page, so the two feel like one continuous thread.
+ */
+
+.fmcg-expo {
+  width: 100%;
+  position: relative;
+}
+
+.fmcg-expo__h1 {
+  margin-top: 1rem;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  max-width: 20ch;
+}
+
+.fmcg-expo__h2 {
+  font-size: var(--fs-h2);
+  max-width: 30ch;
+}
+
+.fmcg-expo__h2--display {
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  max-width: 22ch;
+}
+
+.fmcg-expo__h2--accent {
+  color: var(--fmcg-accent);
+  margin-top: 0.25rem;
+}
+
+.fmcg-expo__lead {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  max-width: 48ch;
+}
+
+.fmcg-expo__hero-subtitle {
+  margin-top: 0.75rem;
+  font-size: 1.2rem;
+  color: var(--color-text);
+}
+
+.fmcg-expo__hero-body {
+  margin-top: 1rem;
+  max-width: 52ch;
+}
+
+.fmcg-expo__body-text {
+  margin-top: 1rem;
+  max-width: 60ch;
+}
+
+.fmcg-expo__note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-faint);
+  max-width: 46ch;
+}
+
+.fmcg-expo__positioning {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--fmcg-accent);
+}
+
+.fmcg-expo__positioning--left {
+  text-align: left;
+}
+
+.fmcg-expo__section {
+  padding: var(--section-space) 0;
+}
+
+.fmcg-expo__section--raised {
+  background: var(--color-surface-container);
+}
+
+.fmcg-expo__section-head {
+  max-width: 46rem;
+  margin-bottom: 2.5rem;
+}
+
+.fmcg-expo__section-head--center {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.fmcg-expo__section-head--center .fmcg-expo__lead,
+.fmcg-expo__section-head--center .fmcg-expo__body-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- STATUS BAR ---------- */
+
+.fmcg-status {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem var(--gutter);
+  background: var(--color-surface-container);
+  border-bottom: 1px solid var(--color-border-soft);
+  font-family: var(--font-display);
+}
+
+.fmcg-status__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  min-width: 0;
+}
+
+.fmcg-status__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.fmcg-status--before .fmcg-status__dot {
+  animation: fmcgPulse 2s ease-in-out infinite;
+}
+
+.fmcg-status--during .fmcg-status__dot {
+  background: #4ade80;
+  animation: fmcgPulse 1.2s ease-in-out infinite;
+}
+
+.fmcg-status--after .fmcg-status__dot {
+  background: var(--color-text-faint);
+}
+
+@keyframes fmcgPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.fmcg-status__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.fmcg-status__countdown {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.fmcg-status__countdown strong {
+  color: var(--fmcg-accent, var(--color-primary));
+  font-variant-numeric: tabular-nums;
+}
+
+.fmcg-status__body {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.fmcg-status__meta {
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+  letter-spacing: 0.02em;
+}
+
+.fmcg-status__cta {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+}
+
+/* ---------- HERO ---------- */
+
+.fmcg-expo__hero {
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.fmcg-expo__hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.fmcg-expo__hero-stage {
+  position: relative;
+  height: clamp(280px, 32vw, 420px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 40%, rgba(168, 85, 247, 0.12), transparent 70%);
+  border: 1px solid var(--color-border-soft);
+}
+
+.fmcg-expo__coords {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.fmcg-expo__coords--stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.fmcg-expo__coords-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-text-faint);
+}
+
+.fmcg-expo__coords-stall {
+  color: var(--fmcg-accent);
+  font-weight: 600;
+}
+
+.fmcg-expo__hero-actions {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ---------- QUICK ACTIONS ---------- */
+
+.fmcg-expo__quick-actions {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.fmcg-expo__quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  text-align: left;
+  padding: 1.25rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-border-soft);
+  color: var(--color-text);
+  transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.fmcg-expo__quick-action:hover {
+  border-color: rgba(208, 188, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.fmcg-expo__quick-action-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.fmcg-expo__quick-action-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.fmcg-expo__quick-action-arrow {
+  margin-top: 0.4rem;
+  color: var(--fmcg-accent);
+  font-weight: 600;
+}
+
+/* ---------- ABOUT THE STALL ---------- */
+
+.fmcg-expo__about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.fmcg-expo__about-copy .btn {
+  margin-top: 1.5rem;
+}
+
+.fmcg-expo__meeting-card {
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.fmcg-expo__meeting-card-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.fmcg-expo__meeting-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-text-faint);
+  flex-shrink: 0;
+}
+
+.fmcg-expo__meeting-dot--accent {
+  background: var(--fmcg-accent);
+  box-shadow: 0 0 16px var(--fmcg-accent);
+}
+
+.fmcg-expo__meeting-card-line {
+  width: 1px;
+  height: 2.5rem;
+  margin-left: 6px;
+  background: linear-gradient(to bottom, var(--color-text-faint), var(--fmcg-accent));
+}
+
+.fmcg-expo__meeting-card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-soft);
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- JOURNEY (THE OPPORTUNITY) ---------- */
+
+.fmcg-expo__journey {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.fmcg-expo__journey-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.5rem 1.25rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-bright);
+  border: 1px solid var(--color-border-soft);
+}
+
+.fmcg-expo__journey-number {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: var(--fmcg-accent);
+  font-weight: 600;
+}
+
+.fmcg-expo__journey-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.fmcg-expo__journey-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- WHAT WE DO ---------- */
+
+.fmcg-expo__pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.fmcg-expo__pillar {
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-border-soft);
+}
+
+.fmcg-expo__pillar-number {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fmcg-accent);
+}
+
+.fmcg-expo__pillar h3 {
+  margin-top: 0.75rem;
+  font-size: 1.15rem;
+}
+
+.fmcg-expo__pillar p {
+  margin-top: 0.6rem;
+}
+
+/* ---------- WHY TRINOVA ---------- */
+
+.fmcg-expo__why-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.fmcg-expo__chips {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.fmcg-expo__chip {
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-bright);
+  border: 1px solid var(--color-border-soft);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+}
+
+/* ---------- CHHATTISGARH ---------- */
+
+.fmcg-expo__chhattisgarh-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.fmcg-expo__path {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fmcg-expo__path-step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-container);
+}
+
+.fmcg-expo__path-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fmcg-accent);
+  flex-shrink: 0;
+}
+
+.fmcg-expo__path-step span:nth-child(2) {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.fmcg-expo__path-arrow {
+  margin-left: auto;
+  color: var(--color-text-faint);
+}
+
+/* ---------- EXPERIENCE ---------- */
+
+.fmcg-expo__experience {
+  max-width: 46rem;
+}
+
+/* ---------- BRAND AUDIT ---------- */
+
+.fmcg-audit {
+  margin-top: 2.5rem;
+}
+
+.fmcg-audit__disclaimer {
+  max-width: 46rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+.fmcg-audit__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.fmcg-audit__area {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-border-soft);
+}
+
+.fmcg-audit__area-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.fmcg-audit__area-number {
+  font-family: var(--font-display);
+  color: var(--fmcg-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.fmcg-audit__area-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.fmcg-audit__question {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.fmcg-audit__options {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fmcg-audit__option {
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-bright);
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.fmcg-audit__option:hover {
+  border-color: rgba(208, 188, 255, 0.3);
+}
+
+.fmcg-audit__option.is-selected {
+  border-color: var(--fmcg-accent);
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--fmcg-accent) 12%, var(--color-surface-bright));
+}
+
+.fmcg-audit__result {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-bright);
+  border: 1px solid var(--color-border-soft);
+}
+
+.fmcg-audit__score-ring {
+  --pct: 0;
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(var(--fmcg-accent) calc(var(--pct) * 1%), var(--color-border-soft) 0);
+}
+
+.fmcg-audit__score-ring::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: var(--color-surface-bright);
+}
+
+.fmcg-audit__score-num {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.fmcg-audit__score-max {
+  position: relative;
+  font-size: 0.7rem;
+  color: var(--color-text-faint);
+  margin-left: 2px;
+  align-self: flex-end;
+}
+
+.fmcg-audit__result-copy {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fmcg-audit__result-status {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--fmcg-accent);
+}
+
+.fmcg-audit__result-status--muted {
+  color: var(--color-text-faint);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.fmcg-audit__gaps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.fmcg-audit__gaps-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-faint);
+  margin-bottom: 0.15rem;
+}
+
+.fmcg-audit__free-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+/* ---------- WHO SHOULD VISIT ---------- */
+
+.fmcg-expo__segments-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.fmcg-expo__segment {
+  text-align: left;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-bright);
+  border: 1px solid var(--color-border-soft);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.fmcg-expo__segment:hover {
+  border-color: rgba(208, 188, 255, 0.4);
+}
+
+.fmcg-expo__segment.is-selected {
+  border-color: var(--fmcg-accent);
+  background: color-mix(in srgb, var(--fmcg-accent) 10%, var(--color-surface-bright));
+}
+
+.fmcg-expo__segment-response {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-bright);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fmcg-expo__segment-response p {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+/* ---------- BIG IDEA ---------- */
+
+.fmcg-expo__big-idea {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.1), transparent 60%);
+}
+
+.fmcg-expo__big-idea-inner {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fmcg-expo__big-idea-inner .fmcg-expo__lead,
+.fmcg-expo__big-idea-inner .fmcg-expo__body-text {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fmcg-expo__bigidea-transition {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.fmcg-expo__bigidea-local {
+  color: var(--color-text-faint);
+}
+
+.fmcg-expo__bigidea-wide {
+  color: var(--fmcg-accent);
+  font-weight: 600;
+}
+
+.fmcg-expo__bigidea-line {
+  width: clamp(80px, 20vw, 200px);
+  height: 1px;
+  background: linear-gradient(to right, var(--color-text-faint), var(--fmcg-accent));
+}
+
+/* ---------- BOOKING ---------- */
+
+.fmcg-expo__booking-card {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-border-soft);
+}
+
+.fmcg-booking__field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.fmcg-booking__pills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.6rem;
+}
+
+.fmcg-booking__pills--slots {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.fmcg-booking__pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-bright);
+  border: 1px solid var(--color-border-soft);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.fmcg-booking__pill--slot {
+  padding: 0.6rem;
+}
+
+.fmcg-booking__pill-note {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--color-text-faint);
+}
+
+.fmcg-booking__pill.is-selected {
+  border-color: var(--fmcg-accent);
+  background: color-mix(in srgb, var(--fmcg-accent) 16%, var(--color-surface-bright));
+  color: var(--color-text);
+}
+
+.fmcg-booking__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.fmcg-booking__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.fmcg-booking__grid .fmcg-booking__label {
+  margin-bottom: 0;
+}
+
+.fmcg-booking__input {
+  background: var(--color-surface-bright);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  color: var(--color-text);
+  font: inherit;
+  resize: vertical;
+}
+
+.fmcg-booking__input:focus {
+  outline: none;
+  border-color: var(--fmcg-accent);
+}
+
+.fmcg-booking__submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.fmcg-booking__error {
+  margin-top: 0.75rem;
+  color: #ff8a8a;
+  font-size: 0.85rem;
+}
+
+.fmcg-booking__hint {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-faint);
+}
+
+.fmcg-booking__confirm,
+.fmcg-cant-attend__confirm {
+  text-align: center;
+  padding: 2rem;
+}
+
+.fmcg-booking__confirm-badge {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: var(--fmcg-accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* ---------- CROSSLINK ---------- */
+
+.fmcg-expo__crosslink {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.fmcg-expo__crosslink-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-border-soft);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.fmcg-expo__crosslink-card:hover {
+  border-color: rgba(208, 188, 255, 0.4);
+}
+
+.fmcg-expo__crosslink-card h3 {
+  margin-top: 0.4rem;
+  font-size: 1.3rem;
+  max-width: 32ch;
+}
+
+.fmcg-expo__crosslink-card p {
+  margin-top: 0.5rem;
+  max-width: 46ch;
+}
+
+.fmcg-expo__crosslink-arrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--fmcg-accent);
+  white-space: nowrap;
+}
+
+/* ---------- FINAL ---------- */
+
+.fmcg-expo__final {
+  text-align: center;
+}
+
+.fmcg-expo__final-inner {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.fmcg-expo__final-inner .fmcg-expo__lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fmcg-expo__final-actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ---------- CAN'T ATTEND ---------- */
+
+.fmcg-expo__cant-attend {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.fmcg-cant-attend__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- FLOATING MOBILE CTA ---------- */
+
+.fmcg-expo__floating-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-header);
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--dur-mid) var(--ease-out), opacity var(--dur-mid) var(--ease-out);
+  padding: 0.75rem var(--gutter-mobile);
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.fmcg-expo__floating-cta.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fmcg-expo__floating-cta button {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border: none;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 0 24px rgba(208, 188, 255, 0.35);
+}
+
+@media (min-width: 901px) {
+  .fmcg-expo__floating-cta {
+    left: auto;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    backdrop-filter: none;
+    max-width: 260px;
+  }
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+  .fmcg-expo__hero-grid,
+  .fmcg-expo__about-grid,
+  .fmcg-expo__why-grid,
+  .fmcg-expo__chhattisgarh-grid,
+  .fmcg-expo__cant-attend {
+    grid-template-columns: 1fr;
+  }
+
+  .fmcg-expo__hero-stage {
+    order: -1;
+    height: 240px;
+  }
+
+  .fmcg-status {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fmcg-status__cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .fmcg-expo__section {
+    padding: clamp(2.5rem, 8vw, 3.5rem) 0;
+  }
+
+  .fmcg-expo__crosslink-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

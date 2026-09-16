@@ -1,0 +1,277 @@
+.industry-carousel {
+  margin-top: 2.5rem;
+}
+
+/* ---------- TOOLBAR ---------- */
+
+.industry-carousel__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.industry-carousel__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.industry-carousel__pill {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-container);
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.industry-carousel__pill.is-active {
+  background: var(--color-primary-container);
+  color: var(--color-text);
+  border-color: transparent;
+}
+
+.industry-carousel__pill:hover:not(.is-active) {
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.industry-carousel__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.industry-carousel__nav {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.industry-carousel__nav button {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-soft);
+  background: var(--color-surface-container);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.industry-carousel__nav button:hover {
+  background: var(--color-surface-high);
+  border-color: var(--color-primary);
+}
+
+/* ---------- SQUEEZE STRIP (desktop / tablet) ---------- */
+
+.industry-carousel__strip {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  height: clamp(420px, 48vw, 560px);
+  padding: 0.5rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-lowest);
+  border: 1px solid var(--color-border-soft);
+  overflow-x: auto;
+}
+
+.industry-slat {
+  position: relative;
+  flex: 0 0 60px;
+  min-width: 60px;
+  padding: 0;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-container);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: flex-grow 0.55s var(--ease-out), flex-basis 0.55s var(--ease-out), background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.industry-slat:hover:not(.is-active) {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--color-surface-high);
+}
+
+.industry-slat.is-active {
+  flex: 10 1 380px;
+  min-width: 320px;
+  border-color: var(--slat-accent, var(--color-primary));
+  background: var(--color-surface-high);
+  box-shadow: 0 0 32px -12px var(--slat-accent, var(--color-glow));
+}
+
+.industry-slat__collapsed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.25rem 0 1rem;
+}
+
+.industry-slat__collapsed-id {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--slat-accent, var(--color-primary));
+}
+
+.industry-slat__collapsed-name {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.industry-slat__card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  min-width: 300px;
+}
+
+.industry-slat__card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.industry-slat__id {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--slat-accent, var(--color-primary));
+}
+
+.industry-slat__card h3 {
+  margin-top: 1.1rem;
+  font-size: 1.35rem;
+  text-transform: uppercase;
+}
+
+.industry-slat__tension {
+  margin-top: 0.85rem;
+  color: var(--color-text);
+}
+
+.industry-slat__focus {
+  margin-top: 0.75rem;
+  font-size: var(--fs-small);
+}
+
+.industry-slat__link {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--slat-accent, var(--color-primary));
+}
+
+.industry-slat__link:hover {
+  color: var(--color-text);
+}
+
+/* ---------- ACCORDION (mobile) ---------- */
+
+.industry-accordion {
+  display: none;
+  margin-top: 1.5rem;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.industry-accordion__item {
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-container);
+  overflow: hidden;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.industry-accordion__item.is-active {
+  border-color: var(--slat-accent, var(--color-primary));
+}
+
+.industry-accordion__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.industry-accordion__id {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--slat-accent, var(--color-primary));
+}
+
+.industry-accordion__name {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.industry-accordion__chevron {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+}
+
+.industry-accordion__body {
+  padding: 0 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .industry-carousel__strip {
+    display: none;
+  }
+  .industry-accordion {
+    display: flex;
+  }
+}

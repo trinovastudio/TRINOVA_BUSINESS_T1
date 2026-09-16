@@ -1,0 +1,31 @@
+.how-steps-spine {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.how-steps-spine__svg {
+  display: block;
+}
+
+.how-steps-spine__svg circle {
+  transition: cx 0.12s linear, cy 0.12s linear;
+}
+
+.how-steps-spine__svg path:nth-of-type(2) {
+  transition: stroke-dashoffset 0.12s linear;
+}
+
+@media (max-width: 860px) {
+  .how-steps-spine {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-steps-spine__svg circle {
+    display: none;
+  }
+}

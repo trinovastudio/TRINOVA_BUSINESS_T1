@@ -1,0 +1,27 @@
+@media (max-width: 1024px) {
+  :root {
+    --section-space: clamp(4rem, 10vw, 7rem);
+  }
+}
+
+/*
+ * The header nav is the only consumer of .desktop-only / .mobile-only. Its
+ * breakpoint sits higher than the general content breakpoints (1024px) so a
+ * 10-item primary nav (including the temporary FMCG Expo campaign link)
+ * plus the CTA button never has to squeeze onto a narrow-desktop /
+ * tablet-width viewport before flipping to the mobile menu. The nav's own
+ * unshrunk width at this item count is ~997px; with the logo, gaps, CTA
+ * button, and container padding added on top, ~1360px is the true minimum —
+ * so this sits comfortably above that rather than at it.
+ */
+@media (max-width: 1400px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1401px) {
+  .mobile-only {
+    display: none !important;
+  }
+}

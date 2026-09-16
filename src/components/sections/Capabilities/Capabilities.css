@@ -1,0 +1,50 @@
+.capabilities {
+  position: relative;
+}
+
+.capabilities__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.capabilities__inner h2 {
+  margin-top: 1rem;
+  max-width: 24ch;
+}
+
+.capabilities__lead {
+  margin-top: 1.25rem;
+  max-width: 62ch;
+}
+
+.capabilities__grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.capability-card {
+  padding: 1.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+
+.capability-card h3 {
+  font-size: 1.1rem;
+}
+
+.capability-card p {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.capabilities__inner .btn {
+  margin-top: 3rem;
+}
+
+@media (max-width: 900px) {
+  .capabilities__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

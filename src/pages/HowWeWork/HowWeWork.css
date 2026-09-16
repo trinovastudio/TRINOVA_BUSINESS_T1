@@ -1,0 +1,803 @@
+/*
+ * How We Work — a deliberately distinct "executive methodology" page.
+ * Per this page's own reference design (desgine/HOW WE WORK/DESIGN.md), it
+ * runs a light editorial palette instead of the site's dark theme. Every
+ * token below is scoped under .how-methodology so nothing else is affected.
+ */
+
+.how-methodology {
+  --hm-canvas: #fbfbfd;
+  --hm-surface: #ffffff;
+  --hm-surface-raised: #f4f4f7;
+  --hm-border: #e5e5ea;
+  --hm-ink: #0f0f11;
+  --hm-ink-secondary: #18181b;
+  --hm-muted: #71717a;
+  --hm-primary: #6d28d9;
+  --hm-primary-hover: #7c3aed;
+  --hm-primary-wash: rgba(139, 92, 246, 0.08);
+  --hm-primary-ring: rgba(109, 40, 217, 0.15);
+  --hm-chip-bg: #e3e1ec;
+  --hm-chip-ink: #1a1b22;
+  --hm-font-display: 'Space Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --hm-font-body: 'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  position: relative;
+  width: 100%;
+  background: var(--hm-canvas);
+  color: var(--hm-ink);
+  font-family: var(--hm-font-body);
+  overflow-x: hidden;
+}
+
+.how-methodology h1,
+.how-methodology h2,
+.how-methodology h3 {
+  font-family: var(--hm-font-display);
+  color: var(--hm-ink);
+  margin: 0;
+}
+
+.how-methodology p {
+  font-family: var(--hm-font-body);
+  color: var(--hm-muted);
+  margin: 0;
+}
+
+/* Scope the shared Button component to this page's own button spec. */
+.how-methodology .btn {
+  font-family: var(--hm-font-display);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 4px;
+}
+.how-methodology .btn-primary {
+  background: var(--hm-primary);
+  color: #ffffff;
+  border-color: var(--hm-primary);
+  box-shadow: none;
+}
+.how-methodology .btn-primary:hover {
+  background: var(--hm-primary-hover);
+  border-color: var(--hm-primary-hover);
+  box-shadow: none;
+}
+.how-methodology .btn-ghost {
+  color: var(--hm-primary);
+}
+.how-methodology .btn-ghost:hover {
+  color: var(--hm-primary-hover);
+}
+
+/* ---------- AMBIENT BACKGROUND ---------- */
+
+.how-methodology__ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.how-methodology__ambient-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#ccc3d7 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.12;
+}
+
+.how-methodology__ambient-label {
+  position: absolute;
+  font-family: var(--hm-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hm-muted);
+  opacity: 0.35;
+  white-space: nowrap;
+}
+.how-methodology__ambient-label--left {
+  top: 22%;
+  left: 2rem;
+  transform: rotate(90deg) translateX(-50%);
+  transform-origin: left;
+}
+.how-methodology__ambient-label--right {
+  top: 55%;
+  right: 2rem;
+  transform: rotate(-90deg) translateX(50%);
+  transform-origin: right;
+}
+
+@media (max-width: 960px) {
+  .how-methodology__ambient-label {
+    display: none;
+  }
+}
+
+/* ---------- HUD SIDE NAVIGATOR ---------- */
+
+.methodology-nav {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .methodology-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: fixed;
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px rgba(15, 15, 17, 0.03), 0 8px 24px -6px rgba(15, 15, 17, 0.08);
+    width: 190px;
+  }
+}
+
+.methodology-nav__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.15rem 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--hm-border);
+  font-family: var(--hm-font-display);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hm-muted);
+}
+
+.methodology-nav__pct {
+  color: var(--hm-primary);
+  font-weight: 600;
+}
+
+.methodology-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-top: 0.4rem;
+}
+
+.methodology-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0.4rem;
+  border-radius: 0.35rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--dur-fast, 0.2s) ease;
+}
+
+.methodology-nav__item:hover {
+  background: var(--hm-surface-raised);
+}
+
+.methodology-nav__item.is-active {
+  background: var(--hm-surface-raised);
+}
+
+.methodology-nav__dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hm-border);
+  transition: background 0.2s ease;
+}
+
+.methodology-nav__item.is-active .methodology-nav__dot {
+  background: var(--hm-primary);
+}
+
+.methodology-nav__label {
+  font-family: var(--hm-font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--hm-muted);
+}
+
+.methodology-nav__item.is-active .methodology-nav__label {
+  color: var(--hm-ink);
+}
+
+/* ---------- HERO ---------- */
+
+.how-methodology__hero {
+  position: relative;
+  z-index: 2;
+  padding: 7rem 0 5rem;
+}
+
+.how-methodology__hero-inner {
+  max-width: 64rem;
+}
+
+.how-methodology__eyebrow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.how-methodology__eyebrow {
+  font-family: var(--hm-font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hm-primary);
+}
+
+.how-methodology__status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  background: var(--hm-surface-raised);
+  font-family: var(--hm-font-display);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--hm-muted);
+}
+
+.how-methodology__status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--hm-primary);
+  animation: hmPulse 2s ease-in-out infinite;
+}
+
+@keyframes hmPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.how-methodology__h1 {
+  margin-top: 1.5rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.how-methodology__h1-dot {
+  color: var(--hm-primary);
+  font-weight: 700;
+}
+
+.how-methodology__lead {
+  margin-top: 1.25rem;
+  max-width: 42rem;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--hm-muted);
+}
+
+.how-methodology__signals {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.how-methodology__signal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.how-methodology__signal-label {
+  font-family: var(--hm-font-display);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hm-muted);
+}
+
+.how-methodology__signal-value {
+  font-family: var(--hm-font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--hm-ink);
+}
+
+.how-methodology__signal-divider {
+  width: 1px;
+  height: 2rem;
+  background: var(--hm-border);
+}
+
+@media (max-width: 640px) {
+  .how-methodology__hero {
+    padding: 5.5rem 0 3rem;
+  }
+}
+
+/* ---------- METHODOLOGY CONTAINER ---------- */
+
+.how-methodology__container {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 0 4rem;
+}
+
+.how-methodology__stages {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 1rem 0;
+}
+
+.how-step {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 2fr) minmax(0, 5fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.how-step__box {
+  grid-column: 1;
+}
+
+.how-step__node {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.how-step__meta {
+  grid-column: 3;
+}
+
+.how-step.is-reversed .how-step__box {
+  grid-column: 3;
+}
+
+.how-step.is-reversed .how-step__meta {
+  grid-column: 1;
+}
+
+/* Node dot */
+
+.how-step__node-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--hm-primary);
+  position: relative;
+  z-index: 2;
+}
+
+.how-step__node-ping {
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 1px solid var(--hm-primary-ring);
+  animation: hmPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes hmPing {
+  0% { transform: scale(1); opacity: 0.6; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* Node presentation box (rich card) */
+
+.how-step__box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: var(--hm-surface);
+  border: 1px solid var(--hm-border);
+  border-radius: 8px;
+  padding: 1.75rem;
+  box-shadow: 0 1px 2px rgba(15, 15, 17, 0.03), 0 8px 24px -6px rgba(15, 15, 17, 0.04);
+  transition: box-shadow 0.25s ease;
+}
+
+.how-step__box:hover {
+  box-shadow: 0 1px 2px rgba(15, 15, 17, 0.03), 0 20px 36px -8px rgba(109, 40, 217, 0.1);
+}
+
+.how-step__box-top {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--hm-border);
+}
+
+.how-step__box-tag {
+  font-family: var(--hm-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hm-primary);
+}
+
+.how-step__box-heading {
+  padding-top: 0.4rem;
+}
+
+.how-step__box-heading h2 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.how-step__box-quote {
+  margin-top: 0.35rem;
+  font-family: var(--hm-font-display);
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--hm-primary);
+}
+
+.how-step__box-focus {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--hm-muted);
+}
+
+.how-step__inset {
+  margin-top: 0.4rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background: var(--hm-surface-raised);
+}
+
+.how-step__inset-label {
+  display: block;
+  font-family: var(--hm-font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hm-muted);
+}
+
+.how-step__inset p {
+  margin-top: 0.35rem;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--hm-ink-secondary);
+  line-height: 1.5;
+}
+
+.how-step__ledger {
+  margin-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.how-step__ledger-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--hm-border);
+  font-size: 13px;
+}
+
+.how-step__ledger-row:last-child {
+  border-bottom: none;
+}
+
+.how-step__ledger-title {
+  color: var(--hm-ink);
+}
+
+.how-step__ledger-bullet {
+  color: var(--hm-primary);
+  font-weight: 700;
+}
+
+.how-step__ledger-team {
+  flex-shrink: 0;
+  font-family: var(--hm-font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--hm-muted);
+}
+
+/* Descriptive metadata card */
+
+.how-step__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.how-step__meta-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  background: var(--hm-chip-bg);
+  color: var(--hm-chip-ink);
+  font-family: var(--hm-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.how-step__meta h3 {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.how-step__meta p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.how-step__meta-stats {
+  margin-top: 0.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.how-step__meta-stat {
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  background: var(--hm-surface-raised);
+}
+
+.how-step__meta-stat-label {
+  display: block;
+  font-family: var(--hm-font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--hm-muted);
+}
+
+.how-step__meta-stat-value {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--hm-font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--hm-ink);
+}
+
+@media (max-width: 900px) {
+  .how-step,
+  .how-step.is-reversed {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+  .how-step__box,
+  .how-step.is-reversed .how-step__box {
+    grid-column: 1;
+    order: 2;
+  }
+  .how-step__node,
+  .how-step.is-reversed .how-step__node {
+    grid-column: 1;
+    order: 1;
+    justify-content: flex-start;
+  }
+  .how-step__meta,
+  .how-step.is-reversed .how-step__meta {
+    grid-column: 1;
+    order: 3;
+  }
+  .how-methodology__stages {
+    gap: 3rem;
+  }
+}
+
+/* ---------- SECTIONS: PATTERNS / PRINCIPLES ---------- */
+
+.how-methodology__section {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 0;
+  border-top: 1px solid var(--hm-border);
+}
+
+.how-methodology__section--raised {
+  background: var(--hm-surface-raised);
+}
+
+.how-methodology__section-label {
+  display: block;
+  font-family: var(--hm-font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hm-primary);
+}
+
+.how-methodology__section-h2 {
+  margin-top: 0.75rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  max-width: 32rem;
+}
+
+.how-methodology__section-lead {
+  margin-top: 0.9rem;
+  max-width: 56ch;
+  font-size: 15px;
+}
+
+.how-methodology__patterns {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.how-methodology__pattern-card {
+  padding: 1.15rem 1.5rem;
+  border-radius: 8px;
+  background: var(--hm-surface);
+  border: 1px solid var(--hm-border);
+}
+
+.how-methodology__pattern-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.how-methodology__pattern-card p {
+  margin-top: 0.4rem;
+  font-family: var(--hm-font-display);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--hm-muted);
+}
+
+.how-methodology__principles {
+  margin-top: 2.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.how-methodology__principle-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.how-methodology__principle-card p {
+  margin-top: 0.4rem;
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .how-methodology__principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- FINAL CONVERGENCE & CTA ---------- */
+
+.how-methodology__final {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 0 7rem;
+}
+
+.how-methodology__convergence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.how-methodology__convergence-line {
+  width: 2px;
+  height: 5rem;
+  background: linear-gradient(to bottom, var(--hm-primary), var(--hm-border));
+}
+
+.how-methodology__convergence-node {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--hm-surface);
+  border: 1px solid var(--hm-border);
+  box-shadow: 0 12px 28px -8px rgba(15, 15, 17, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-methodology__convergence-node-inner {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--hm-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.how-methodology__convergence-label {
+  font-family: var(--hm-font-display);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hm-muted);
+}
+
+.how-methodology__cta {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--hm-surface);
+  border: 1px solid var(--hm-border);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  box-shadow: 0 1px 2px rgba(15, 15, 17, 0.03), 0 24px 48px -12px rgba(15, 15, 17, 0.06);
+}
+
+.how-methodology__cta-badge {
+  display: inline-flex;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: var(--hm-surface-raised);
+  font-family: var(--hm-font-display);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hm-muted);
+}
+
+.how-methodology__cta h2 {
+  margin-top: 1rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.how-methodology__cta p {
+  margin-top: 0.85rem;
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.how-methodology__cta-actions {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

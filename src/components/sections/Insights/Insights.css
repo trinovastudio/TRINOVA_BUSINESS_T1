@@ -1,0 +1,52 @@
+.insights__intro {
+  max-width: 60ch;
+}
+
+.insights__intro h2 {
+  margin-top: 1rem;
+}
+
+.insights__intro p {
+  margin-top: 1.25rem;
+}
+
+.insights__grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.insight-card {
+  padding: 1.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.insight-card h3 {
+  font-size: 1.05rem;
+  text-transform: none;
+}
+
+.insight-card .btn {
+  margin-top: auto;
+}
+
+.insights .btn {
+  margin-top: 3rem;
+}
+
+@media (max-width: 900px) {
+  .insights__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .insights__grid {
+    grid-template-columns: 1fr;
+  }
+}

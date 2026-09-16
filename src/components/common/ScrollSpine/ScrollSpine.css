@@ -1,0 +1,31 @@
+.scroll-spine {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scroll-spine__svg {
+  display: block;
+}
+
+.scroll-spine__svg circle {
+  transition: cx 0.12s linear, cy 0.12s linear;
+}
+
+.scroll-spine__svg path:nth-of-type(2) {
+  transition: stroke-dashoffset 0.12s linear;
+}
+
+@media (max-width: 900px) {
+  .scroll-spine {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-spine__svg circle {
+    display: none;
+  }
+}
